@@ -86,7 +86,7 @@
 				a{color:black;text-decoration:none;}
 				a:hover{text-decoration:underline;}
 				img{float: left;vertical-align: top;}
-				#showpic{margin: 5px 0;float:none;width:560px;}
+				#showpic{margin: 5px 0;float:none;max-width:560px;}
 				.episode_block{text-align:left;overflow:hidden;margin-bottom:5px;padding:5px;}
 				.episode_block:hover{background-color:#99c;}
 				.episode_img{float:left;height:90px;width:160px;position:relative;}
