@@ -1,0 +1,149 @@
+/* global css */
+body{
+	margin: 0;
+}
+#content{
+	width: 940px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px;
+}
+a{
+	color:black;
+	text-decoration:none;
+}
+
+table{
+	table-layout:fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table th, table td{ 
+	padding: 0;
+}
+
+img{
+	float: left;
+	vertical-align: top;
+}
+
+/* main page */
+.main#letters{
+	text-align:center;
+}
+.main td{
+	padding: 5px;
+}
+.main#list td{
+	width: 50px;
+}
+.main#list td:first-child{
+	min-width: 800px;
+	text-align: left;
+}
+.main#list tr:first-child td{
+	font-weight: bold;
+	text-align:center;
+}
+.main#list a{
+	color: black;
+	text-decoration: none;
+}
+.main#list a:hover{
+	text-decoration: underline;
+}
+.main#list tr:hover{
+	background-color:#99c;
+}
+
+.lett{
+	display: inline-block;
+	color: #99c;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	margin-right: 5px;
+	padding: 5px;
+}
+.lett:last-child{
+	margin-right: 0;
+}
+.lett_sel{
+	font-weight:bold;
+}
+
+/* show page */
+h1, h4{
+	margin: 0;
+}
+.showphp a:hover{
+	text-decoration:underline;
+}
+.showphp #showpic{
+	margin-top: 5px;
+	float: none;
+	max-width: 560px;
+}
+.showphp .headrs{
+	margin-bottom:5px;
+}
+.episode_block{
+	text-align:left;
+	overflow:hidden;
+	margin-bottom:5px;
+	padding:5px;
+}
+.episode_block:hover{
+	background-color:#99c;
+}
+.episode_img{
+	float:left;
+	height:90px;
+	width:160px;
+	position:relative;
+}
+.episode_img .video_time{
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	padding:2px 5px;
+	background:rgba(0,0,0,0.45);
+	color:white;
+	border-radius:2px;
+	z-index:10;
+}
+.episode_title, .episode_data{
+	margin-left:165px;
+}
+.countries{
+	text-align:justify;
+}
+.countries b:hover{
+	text-decoration:underline;
+}
+.countries .countries_names{
+	display:none;
+}
+.countries .countries_names span{
+	white-space:nowrap;
+}
+.countries .countries_names span:hover{
+	font-style:italic;
+}
+.back{
+	margin-bottom:25px;
+}
+.media_id{
+	float:right;
+	padding:0 0 5px 5px;
+	float:right;
+}
+.media_id input{
+	text-align:center;
+}
+.flag{
+	float:none;
+	vertical-align:top;
+	display:inline-block;
+	height:20px;
+}

@@ -4,31 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <title>Crunchy RSS</title>
-<style>
-body{margin:0 auto;width:861px;}
-table{table-layout:fixed;margin:0 auto;border:1px;}
-table#season{text-align:center;width:100%;}
-tr td:first-child{min-width:800px;}
-td,th{padding:5px;}
-a{color:black;text-decoration:none;}
-#list a:hover{text-decoration:underline;}
-#season a:hover, #list tr:hover, #list tr:hover a{color:#99c;}
-.back{margin-bottom:25px;text-align:center;}
-.lett{
-	background-color: #f8f8f8;
-	border: 1px solid #ccc;
-	margin-right: 5px;
-	padding: 5px;
-}
-.lett:last-child{margin-right:0;}
-span.lett{color:#99c;}
-#list td{text-align:center;}
-#list td:first-child{text-align:left;}
-
-</style>
+<link href="style.css?1" rel="stylesheet"/>
 </head>
 
 <body>
+<div id="content">
 
 <?
 
@@ -37,25 +17,32 @@ span.lett{color:#99c;}
 
 ?>
 
-<table id="season">
+<table class="main" id="letters">
 <tr>
 <td>
 <?
 	
 	$preg_string = '/^[a-z]$/';
-	$preg_num    = '/^0-9$/';
+	$preg_num    = '/^num$/';
+	$dev_edition = false;
 	
 	$id = isset($_GET['id']) ? strtolower($_GET['id']) : false;
-	$letter = $id && ( preg_match($preg_string,$id) || preg_match($preg_num,$id) ) ? $id : 'all';
 	
-	print '<a class="lett lett_all" href=".">All</a>';
-	print '<a class="lett lett_num" href="?id=0-9">#</a>';
+	if($dev_edition){
+		$letter = $id && ( preg_match($preg_string,$id) || preg_match($preg_num,$id) ) ? $id : 'all';
+		print '<a class="lett'.($letter=='all'?' lett_sel':'').'" href=".">All</a>';
+	}
+	else{
+		$letter = $id && ( preg_match($preg_string,$id) || preg_match($preg_num,$id) ) ? $id : 'num';
+	}
+	
+	print '<a class="lett'.($letter=='num'?' lett_sel':'').'" href="?id=num">#</a>';
 	foreach (range('a', 'z') as $char) {
 		if($char==$letter){
-			print '<span class="lett lett_'.$char.'">'.strtoupper($char).'</span>';
+			print '<span class="lett lett_sel">'.strtoupper($char).'</span>';
 		}
 		else{
-			print '<a class="lett lett_'.$char.'" href="?id='.$char.'">'.strtoupper($char).'</a>';
+			print '<a class="lett" href="?id='.$char.'">'.strtoupper($char).'</a>';
 		}
 	}
 
@@ -64,35 +51,24 @@ span.lett{color:#99c;}
 </tr>
 </table>
 
-<style><?
-
-if($letter=='0-9'){
-	print'.lett_num{font-weight:bold;}';
-}
-else{
-	print'.lett_'.$letter.'{font-weight:bold;}';
-}
-
-?></style>
-
-<table id="list">
+<table class="main" id="list">
 	
 	<tr>
-		<th>Title</th>
-		<th>HTML</th>
-		<th>RSS</th>
+		<td>Title</td>
+		<td>HTML</td>
+		<td>RSS</td>
 	</tr>
 	<tr>
 		<td><a href="show.php?p=latest"><b>Latest Crunchyroll Anime Videos</b></a></td>
-		<td></td>
-		<td style="text-align:center;"><a href="http://www.crunchyroll.com/rss/anime" target="_blank">Show</a></tr>
+		<td><a href="http://feeds.feedburner.com/crunchyroll/rss/anime?format=html" target="_blank">Show</a></tr>
+		<td><a href="http://feeds.feedburner.com/crunchyroll/rss/anime?format=xml" target="_blank">Show</a></tr>
 	</tr>
 	<?
 	
 	$data_strs = [];
 	
 	foreach ($data as $sid => $title){
-		if($letter == 'all' || strtolower($title[0]) == $letter || $letter == '0-9' && !in_array(strtolower($title[0]), range('a','z')) ){
+		if($letter == 'all' || strtolower($title[0]) == $letter || $letter == 'num' && !in_array(strtolower($title[0]), range('a','z')) ){
 			$data_strs[] = $title.'|||'.$sid;
 		}
 	}
@@ -112,5 +88,6 @@ else{
 	?>
 
 </table>
+</div>
 </body>
 </html>
