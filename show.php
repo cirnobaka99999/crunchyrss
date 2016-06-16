@@ -87,7 +87,7 @@
 				<h1><a href="show.php?'.$thispage.'">'.$json['title'].'</a></h1>
 				'.$json['link2_html'].'
 				<h4><a href="'.$json['link'].'" target="_blank">'.$json['link'].'</a></h4>
-				'.($json['image']!=''?'<div><img id="showpic" src="'.$json['image'].'" alt=""/>':'').'
+				'.($json['image']!=''?'<div><img id="showpic" src="'.$json['image'].'" alt=""/></div>':'').'
 			</div>
 	';
 	
