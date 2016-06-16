@@ -60,8 +60,8 @@
 	</tr>
 	<tr>
 		<td><a href="show.php?p=latest"><b>Latest Crunchyroll Anime Videos</b></a></td>
-		<td><a href="http://feeds.feedburner.com/crunchyroll/rss/anime?format=html" target="_blank">Show</a></tr>
-		<td><a href="http://feeds.feedburner.com/crunchyroll/rss/anime?format=xml" target="_blank">Show</a></tr>
+		<td><a href="http://feeds.feedburner.com/crunchyroll/rss/anime?format=html" target="_blank">Show</a></td>
+		<td><a href="http://feeds.feedburner.com/crunchyroll/rss/anime?format=xml" target="_blank">Show</a></td>
 	</tr>
 	<?
 	
