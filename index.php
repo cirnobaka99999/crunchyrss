@@ -22,6 +22,9 @@ a{color:black;text-decoration:none;}
 }
 .lett:last-child{margin-right:0;}
 span.lett{color:#99c;}
+#list td{text-align:center;}
+#list td:first-child{text-align:left;}
+
 </style>
 </head>
 
@@ -46,7 +49,7 @@ span.lett{color:#99c;}
 	$letter = $id && ( preg_match($preg_string,$id) || preg_match($preg_num,$id) ) ? $id : 'all';
 	
 	print '<a class="lett lett_all" href=".">All</a>';
-	print '<a class="lett lett_num" href="?id=0-9">0-9</a>';
+	print '<a class="lett lett_num" href="?id=0-9">#</a>';
 	foreach (range('a', 'z') as $char) {
 		if($char==$letter){
 			print '<span class="lett lett_'.$char.'">'.strtoupper($char).'</span>';
@@ -76,10 +79,12 @@ else{
 	
 	<tr>
 		<th>Title</th>
+		<th>HTML</th>
 		<th>RSS</th>
 	</tr>
 	<tr>
 		<td><a href="show.php?p=latest"><b>Latest Crunchyroll Anime Videos</b></a></td>
+		<td></td>
 		<td style="text-align:center;"><a href="http://www.crunchyroll.com/rss/anime" target="_blank">Show</a></tr>
 	</tr>
 	<?
@@ -99,7 +104,8 @@ else{
 		$strdata = explode('|||',$strdata);
 		print'<tr>';
 		print'<td><a href="show.php?id=' . $strdata[1] . '">' . $strdata[0] . '</a></td>';
-		print'<td><a href="http://www.crunchyroll.com/syndication/feed?type=episodes&amp;id=' .  $strdata[1] . '">Show</a></td>';
+		print'<td><a href="http://www.crunchyroll.com/showseriesmedia?id=' .  $strdata[1] . '" target="_blank">Show</a></td>';
+		print'<td><a href="http://www.crunchyroll.com/syndication/feed?type=episodes&amp;id=' .  $strdata[1] . '" target="_blank">Show</a></td>';
 		print'</tr>';
 	}
 	
