@@ -131,9 +131,7 @@
 	
 	print'
 			<div class="back">
-				<span>[</span>
-				<a href="./">back to list</a>
-				<span>]</span>
+				<span>[</span><a href="./">back to list</a><span>]</span>
 			</div>
 			</div>
 		</body>
